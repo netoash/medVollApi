@@ -1,20 +1,32 @@
 package med.voll.api.domain.consulta;
 
-import jakarta.persistence.*;
+import java.time.LocalDateTime;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import med.voll.api.domain.medico.Medico;
 import med.voll.api.domain.paciente.Paciente;
-
-import java.time.LocalDateTime;
 
 @Table(name = "consultas")
 @Entity(name = "Consulta")
 @Getter
+@Setter
 @NoArgsConstructor
-@AllArgsConstructor
+//@AllArgsConstructor
 @EqualsAndHashCode(of = "id")
 public class Consulta {
 
@@ -36,34 +48,18 @@ public class Consulta {
     @Enumerated(EnumType.STRING)
     private MotivoCancelamento motivoCancelamento;
 
-    public Consulta(Long id, Medico medico, Paciente paciente, LocalDateTime data, MotivoCancelamento motivoCancelamento) {
-		// TODO Auto-generated constructor stub
-	}
-
 	public void cancelar(MotivoCancelamento motivo) {
         this.motivoCancelamento = motivo;
     }
 
-	public Long getId() {
-		return id;
+	public Consulta(Long id, Medico medico, Paciente paciente, LocalDateTime data,
+			MotivoCancelamento motivoCancelamento) {
+		this.id = id;
+		this.medico = medico;
+		this.paciente = paciente;
+		this.data = data;
+		this.motivoCancelamento = motivoCancelamento;
 	}
 
-	public Medico getMedico() {
-		return medico;
-	}
-
-	public Paciente getPaciente() {
-		return paciente;
-	}
-
-	public LocalDateTime getData() {
-		return data;
-	}
-
-	public MotivoCancelamento getMotivoCancelamento() {
-		return motivoCancelamento;
-	}
 	
-	
-
 }
