@@ -26,7 +26,7 @@ import med.voll.api.domain.paciente.Paciente;
 @Getter
 @Setter
 @NoArgsConstructor
-//@AllArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode(of = "id")
 public class Consulta {
 
@@ -52,14 +52,4 @@ public class Consulta {
         this.motivoCancelamento = motivo;
     }
 
-	public Consulta(Long id, Medico medico, Paciente paciente, LocalDateTime data,
-			MotivoCancelamento motivoCancelamento) {
-		this.id = id;
-		this.medico = medico;
-		this.paciente = paciente;
-		this.data = data;
-		this.motivoCancelamento = motivoCancelamento;
-	}
-
-	
 }

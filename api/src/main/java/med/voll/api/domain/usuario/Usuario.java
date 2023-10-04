@@ -60,18 +60,5 @@ public class Usuario implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
-
-	public Long getId() {
-		return id;
-	}
-
-	public String getLogin() {
-		return login;
-	}
-
-	public String getSenha() {
-		return senha;
-	}
-    
-    
+   
 }
